@@ -51,4 +51,4 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 ^https:\/\/interface3?\.music\.163\.com\/w?eapi\/resource-exposure\/(activity\/config\/get|config)\? reject-dict
 
 [MITM]
-hostname = 112.13.*, 59.111.*, interface*.music.163.com, httpdns.n.netease.com
+hostname = 112.13.*, 59.111.*, interface3.music.163.com, httpdns.n.netease.com
