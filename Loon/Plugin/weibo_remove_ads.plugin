@@ -1,7 +1,7 @@
-#!name = 微博去广告
+#!name = 微博
 #!desc = 没有广告的微博更好刷:D
 #!author = RuCu6
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/120px/Weibo.png
+#!icon = https://github.com/Toperlock/Quantumult/raw/main/icon/Genshin/Genshin-1100.png
 
 
 [Rule]
@@ -69,7 +69,7 @@ http-response ^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php scr
 http-response ^https:\/\/wbapp\.uve\.weibo\.com\/(preload\/get_ad|wbapplua\/wbpullad\.lua)\? script-path = https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js, requires-body = true, tag = 移除开屏广告
 
 # 会员图标
-http-response ^https:\/\/new\.vip\.weibo\.cn\/aj\/appicon\/list\? script-path = https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js, requires-body = true，tag = 会员图标
+http-response ^https:\/\/new\.vip\.weibo\.cn\/aj\/appicon\/list\? script-path = https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js, requires-body = true, tag = 会员图标
 
 [Mitm]
 hostname = *.weibo.cn, *.weibo.com, sinaurl.cn, t.cn weibo.cn
