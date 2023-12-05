@@ -1,4 +1,4 @@
-// 2023-12-05 17:09
+// 2023-11-26 16:35
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -373,8 +373,79 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         }
       });
     }
-  }
-    else if (url.includes("/2/profile/statuses/tab")) {
+  } else if (url.includes("/2/profile/me")) {
+    // 我的页面
+    if (obj?.vipHeaderBgImage) {
+      delete obj.vipHeaderBgImage;
+    }
+    if (obj?.items?.length > 0) {
+      let newItems = [];
+      for (let item of obj.items) {
+        let itemId = item.itemId;
+        if (itemId === "profileme_mine") {
+          if (item?.header) {
+            delete item.header.vipView;
+            delete item.header.vipCenter;
+            delete item.header.vipIcon;
+          }
+          if (item?.items?.length > 0) {
+            for (let d of item.items) {
+              if (d.itemId === "mainnums_friends") {
+                let s = d.click.modules[0].scheme;
+                d.click.modules[0].scheme = s.replace("231093_-_selfrecomm", "231093_-_selffollowed");
+              }
+            }
+          }
+          newItems.push(item);
+        } else if (itemId === "100505_-_top8") {
+          if (item?.items?.length > 0) {
+            item.items = item.items.filter(
+              (i) =>
+                i.itemId === "100505_-_album" || // 我的相册
+                i.itemId === "100505_-_like" || // 赞/收藏
+                i.itemId === "100505_-_watchhistory" || // 浏览记录
+                i.itemId === "100505_-_draft" // 草稿箱
+              // i.itemId === "100505_-_pay" || // 我的钱包
+              // i.itemId === "100505_-_ordercenter" || // 我的订单
+              // i.itemId === "100505_-_productcenter" || // 创作中心
+              // i.itemId === "100505_-_promote" || // 广告中心
+            );
+          }
+          newItems.push(item);
+        } else if (itemId === "100505_-_manage") {
+          if (item?.style) {
+            delete item.style;
+          }
+          // 移除分隔符的点点点
+          if (item?.images) {
+            delete item.images;
+          }
+          newItems.push(item);
+        } else if (itemId === "100505_-_manage2") {
+          // 移除面板样式
+          if (item?.footer) {
+            delete item.footer;
+          }
+          // 移除框内推广
+          if (item?.body) {
+            delete item.body;
+          }
+          newItems.push(item);
+        }
+        // else if (itemId === "100505_-_chaohua" || itemId === "100505_-_recentlyuser") {
+        //   newItems.push(item);
+        // }
+        else {
+          newItems.push(item);
+        };
+        // else {
+        //   // 其他项目全部移除
+        //   continue;
+        // }
+      }
+      obj.items = newItems;
+    }
+  } else if (url.includes("/2/profile/statuses/tab")) {
     if (obj?.cards?.length > 0) {
       let newCards = [];
       for (let card of obj.cards) {
