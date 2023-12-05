@@ -440,9 +440,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         //   // 其他项目全部移除
         //   continue;
         // }
-        // else {
-        //   newItems.push(item);
-        // }
+        else {
+          newItems.push(item);
+        }
       }
       obj.items = newItems;
     }
