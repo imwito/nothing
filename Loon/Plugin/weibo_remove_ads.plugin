@@ -1,8 +1,8 @@
 #!name = 微博去广告
 #!desc = 没有广告的微博更好刷:D
 #!author = RuCu6 imwito
-#!openUrl = https://github.com/imwito/nothing/blob/main/Loon/Plugin/weibo_remove_ads.plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weibo.png
+#!homepage = https://github.com/imwito/nothing/edit/main/Loon/Plugin/weibo_remove_ads.plugin
 #!date = 2023-12-05
 
 [Rule]
