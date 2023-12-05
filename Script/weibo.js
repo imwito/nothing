@@ -431,12 +431,13 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             delete item.body;
           }
           newItems.push(item);
-        } else if (itemId === "100505_-_chaohua" || itemId === "100505_-_recentlyuser") {
-          newItems.push(item);
-        } else {
-          // 其他项目全部移除
-          continue;
-        }
+        } 
+        // else if (itemId === "100505_-_chaohua" || itemId === "100505_-_recentlyuser") {
+        //   newItems.push(item);
+        // } else {
+        //   // 其他项目全部移除
+        //   continue;
+        // }
       }
       obj.items = newItems;
     }
