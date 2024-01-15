@@ -23,8 +23,6 @@ IP-CIDR6, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT
 ^https:\/\/api\.zhihu\.com\/(moments\/lastread|drama\/hot-drama-list) reject-dict
 ^https:\/\/api\.zhihu\.com\/root\/window reject-dict
 
-# 搜索页 - 关键词
-^https:\/\/api\.zhihu\.com\/search\/preset_words reject-dict
 
 # 回答详情页 - 评论区顶部、下一个回答
 ^https:\/\/api\.zhihu\.com\/comment_v5\/(articles|answers)\/\d+\/list-headers reject-dict
