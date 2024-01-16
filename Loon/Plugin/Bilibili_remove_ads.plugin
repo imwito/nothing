@@ -1,5 +1,5 @@
 #!name = Bilibili去广告
-#!desc = 过滤Bilibili广告
+#!desc = 去除烦人的广告
 #!author = Maasea RuCu6 可莉🅥
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
 #!date = 2024-01-16 19:48:54
@@ -26,15 +26,6 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 [Script]
 # 移除播放页面视频列表广告
 http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|ViewProgress)$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除播放页面视频列表广告
-
-# 移除评论区广告
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除评论区广告
-
-# 会员特效弹幕处理
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
-
-# 移除交互式弹幕
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
 
 # 移除青少年模式弹窗
 http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除青少年弹窗
