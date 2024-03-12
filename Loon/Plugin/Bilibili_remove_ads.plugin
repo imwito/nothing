@@ -30,6 +30,8 @@ http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\
 http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除评论区广告
 # 移除青少年模式弹窗
 http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除青少年弹窗
+# 移除交互式弹幕
+http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_helper_beta.js, requires-body = true, binary-body-mode = true, tag = 移除交互式弹幕
 
 # 上部为Proto处理，下部为JSON配置处理
 
@@ -50,8 +52,6 @@ http-response ^https:\/\/api\.bilibili\.com\/pgc\/page\/(bangumi|cinema\/tab\?) 
 # 移除直播间广告
 http-response ^https:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除直播间广告
 
-# 解锁4K画质及1080P高码率 //app.bilibili.com
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 画质解锁
 
 [MitM]
 hostname = app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net, www.bilibili.com, m.bilibili.com, live.bilibili.com
