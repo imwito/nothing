@@ -2,7 +2,7 @@
 #!desc = 去除烦人的广告
 #!author = Maasea RuCu6 可莉🅥
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
-#!date = 2024-03-28 
+#!date = 2024-03-31 
 
 [Rule]
 # 开屏广告
@@ -68,9 +68,6 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story script-pa
 
 # 精简首页顶部标签
 http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 精简首页顶部标签
-
-# 移除热搜广告
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除热搜广告
 
 # 移除观影页广告
 http-response ^https:\/\/api\.bilibili\.com\/pgc\/page\/(bangumi|cinema\/tab\?) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除观影页广告
