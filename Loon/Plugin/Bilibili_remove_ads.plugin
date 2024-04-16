@@ -63,6 +63,9 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/
 # 移除首页推荐广告
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除首页推荐广告
 
+# 移除右上角活动入口
+http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除右上角活动入口
+
 # 移除直播内容和大会员专享
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 移除直播内容和大会员专享
 
