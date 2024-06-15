@@ -312,7 +312,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (i?.pageDatas?.length > 0) {
                   let newII = [];
                   for (let ii of i.pageDatas) {
-                    if (["最新微博", "特别关注", "好友圈", "视频"]?.includes(ii?.title)) {
+                    if (["全部关注","最新微博", "特别关注", "原创","超话社区","好友圈", "视频"]?.includes(ii?.title)) {
                       // 白名单列表
                       newII.push(ii);
                     } else {
