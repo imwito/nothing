@@ -1,5 +1,4 @@
 # OpenAI ChatGPT
-
 DOMAIN,api.statsig.com
 DOMAIN,browser-intake-datadoghq.com
 DOMAIN,cdn.openai.com
@@ -43,8 +42,7 @@ DOMAIN,copilot.microsoft.com
 DOMAIN,sydney.bing.com
 DOMAIN,www.bingapis.com
 DOMAIN-SUFFIX,clarity.ms
-#
-DOMAIN, www.bing.com
+DOMAIN,www.bing.com
 
 # Gemini
 DOMAIN,ai.google.dev
@@ -78,3 +76,7 @@ DOMAIN-SUFFIX,groq.com
 # Perplexity
 DOMAIN-SUFFIX,perplexity.ai
 
+# Mistral AI
+DOMAIN,chat.mistral.ai
+DOMAIN,console.mistral.ai
+DOMAIN-SUFFIX,mistral.ai
