@@ -1,7 +1,4 @@
-/*
-引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js
-*/
-// 2024-04-13 19:05
+// 2024-08-13 14:45
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -113,6 +110,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     // 首页签到
     if (obj?.show) {
       obj.show = 0;
+    }
+    if (obj?.show_time) {
+      obj.show_time = 0;
     }
   } else if (url.includes("/2/client/publisher_list")) {
     // 首页右上角按钮
@@ -312,7 +312,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (i?.pageDatas?.length > 0) {
                   let newII = [];
                   for (let ii of i.pageDatas) {
-                    if (["全部关注","最新微博", "特别关注", "原创","超话社区","好友圈", "视频"]?.includes(ii?.title)) {
+                    if (["全部关注", "最新微博", "特别关注", "原创", "超话社区", "好友圈", "视频"]?.includes(ii?.title)) {
                       // 白名单列表
                       newII.push(ii);
                     } else {
@@ -384,10 +384,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             if (/没有公开博文，为你推荐以下精彩内容/.test(item?.data?.name)) {
               // 个人微博页刷完后的推荐信息流
               continue;
-            } else {
-              newItems.push(item);
             }
           }
+          newItems.push(item);
         } else if (item?.category === "group") {
           // 遍历group,保留置顶微博
           if (item?.header?.data?.icon) {
@@ -416,6 +415,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (ii?.data?.enable_comment_guide) {
                   ii.data.enable_comment_guide = false;
                 }
+                newII.push(ii);
               } else if (ii?.category === "card") {
                 if ([48, 176]?.includes(ii?.data?.card_type)) {
                   // 最近关注与互动过的博主
@@ -429,8 +429,8 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                   // 新版置顶微博背景图
                   delete ii.data.backgroundImage;
                 }
+                newII.push(ii);
               }
-              newII.push(ii);
             }
             item.items = newII;
           }
@@ -441,15 +441,13 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 信息流推广
               removeFeedAd(item?.data);
               // 投票窗口
-              // removeVoteInfo(item?.data);
+              removeVoteInfo(item?.data);
               if (item?.data?.source?.includes("生日动态")) {
                 // 移除生日祝福微博
                 continue;
               }
-              // if (item?.data?.title?.text !== "热门" && item?.data?.title?.structs?.length > 0) {
-              //   // 移除赞过的微博 保留热门内容
-              //   continue;
-              // }
+
+
               if (item?.data?.cleaned !== true) {
                 // 个人微博页刷完后的推荐微博
                 continue;
@@ -653,8 +651,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               newItems.push(item);
             }
           } else if (item?.category === "card") {
-            // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词
-            if ([19, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
+            // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词 236微博趋势 261奥运滚动横幅
+            if ([19, 118, 206, 208, 217, 236, 249, 261]?.includes(item?.data?.card_type)) {
+              continue;
+            } else if (item?.data?.card_type === 101 && item?.data?.cate_id === "1114") {
+              // 微博趋势标题
+              continue;
+            } else if (item?.data?.card_type === 196 && item?.data?.hasOwnProperty("rank")) {
+              // 奥运等排行榜
               continue;
             } else {
               newItems.push(item);
@@ -713,8 +717,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                     newItems.push(item);
                   }
                 } else if (item?.category === "card") {
-                  // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词
-                  if ([19, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
+                  // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词 236微博趋势 261奥运滚动横幅
+                  if ([19, 118, 206, 208, 217, 236, 249, 261]?.includes(item?.data?.card_type)) {
+                    continue;
+                  } else if (item?.data?.card_type === 101 && item?.data?.cate_id === "1114") {
+                    // 微博趋势标题
+                    continue;
+                  } else if (item?.data?.card_type === 196 && item?.data?.hasOwnProperty("rank")) {
+                    // 奥运等排行榜
                     continue;
                   } else {
                     newItems.push(item);
@@ -857,13 +867,17 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (!isAd(ii?.data)) {
                   if (ii?.data) {
                     removeAvatar(ii?.data);
-                    // 22广告图 89商品推广视频
-                    if ([22, 89]?.includes(ii?.data?.card_type)) {
+                    // 17相关搜索 22广告图 42,236智搜问答 89商品推广视频
+                    if ([17, 22, 42, 89, 236]?.includes(ii?.data?.card_type)) {
                       continue;
                     }
                     // 商品推广desc
                     if (ii?.data?.card_type === 42 && ii?.data?.is_ads === true) {
                       continue;
+                    }
+                    // 商品橱窗
+                    if (ii?.data?.semantic_brand_params) {
+                      delete ii.data?.semantic_brand_params;
                     }
                   }
                   newII.push(ii);
@@ -1149,7 +1163,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         }
       }
     }
-  } else if (url.includes("/v1/ad/preload")) {
+  } else if (url.includes("/v1/ad/preload") || url.includes("/v2/ad/preload")) {
     // 开屏广告
     if (obj?.ads?.length > 0) {
       for (let item of obj.ads) {
@@ -1251,6 +1265,10 @@ function removeFeedAd(item) {
   // 移除信息流中的热评
   if (item?.comment_summary) {
     delete item.comment_summary;
+  }
+  // 商品橱窗
+  if (item?.semantic_brand_params) {
+    delete item.semantic_brand_params;
   }
 }
 
