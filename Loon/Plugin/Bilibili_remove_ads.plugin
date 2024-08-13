@@ -1,8 +1,13 @@
 #!name = Bilibili去广告
 #!desc = 去除烦人的广告
-#!author = Maasea RuCu6 可莉🅥
+#!author = Maasea RuCu6 , 可莉
+#!tag = 去广告, Maasea, RuCu6, 可莉
+#!system = iOS
+#!system_version = 
+#!loon_version = 3.2.1(372)
+#!openUrl = https://apps.apple.com/app/id736536022
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
-#!date = 2024-07-12
+#!date = 2024-08-13
 
 [Rule]
 # 开屏广告
