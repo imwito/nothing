@@ -1,13 +1,13 @@
 #!name = 微博去广告
 #!desc = 没有广告的微博更好刷:D
 #!openUrl = https://apps.apple.com/app/id350962117
-#!author = RuCu6 zmqcherish
+#!author = RuCu6[https://github.com/RuCu6], zmqcherish[https://github.com/zmqcherish]
 #!tag = 去广告, RuCu6, zmqcherish
 #!system = 
 #!system_version = 
 #!loon_version = 3.2.1(732)
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weibo.png
-#!date = 2024-08-13
+#!date = 2024-08-14
 
 [Rule]
 # 请求放行
