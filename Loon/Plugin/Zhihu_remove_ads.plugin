@@ -1,8 +1,14 @@
 #!name = 知乎去广告
 #!desc = 去除烦人的广告
 #!author = RuCu6 blackmatrix7
+#!openUrl = https://apps.apple.com/app/id432274380
+#!author = RuCu6[https://github.com/RuCu6], blackmatrix7[https://github.com/blackmatrix7]
+#!tag = 去广告, RuCu6, blackmatrix7
+#!system = 
+#!system_version = 
+#!loon_version = 3.2.1(732)
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Zhihu.png
-#!date = 2024-07-16
+#!date = 2024-08-14
 
 
 [Rule]
