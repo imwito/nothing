@@ -5,10 +5,10 @@
 #!system = 
 #!system_version = 
 #!loon_version = 3.2.1(732)
-#!author = RuCu6 fmz200 imwito
+#!author = RuCu6[https://github.com/RuCu6], fmz200[https://github.com/fmz200]
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/RedPaper.png
-#!date = 2024-08-13
+#!date = 2024-08-14
 
 [Rule]
 AND, ((PROTOCOL, QUIC), (DOMAIN-SUFFIX, xiaohongshu.com)), REJECT
