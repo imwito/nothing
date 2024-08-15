@@ -410,17 +410,17 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 // 信息流推广
                 removeFeedAd(ii?.data);
                 // 投票窗口
-                removeVoteInfo(ii?.data);
+                // removeVoteInfo(ii?.data);
                 // 评论指引
                 if (ii?.data?.enable_comment_guide) {
                   ii.data.enable_comment_guide = false;
                 }
                 newII.push(ii);
               } else if (ii?.category === "card") {
-                if ([48, 176]?.includes(ii?.data?.card_type)) {
-                  // 最近关注与互动过的博主
-                  continue;
-                }
+                // if ([48, 176]?.includes(ii?.data?.card_type)) {
+                //   // 最近关注与互动过的博主
+                //   continue;
+                // }
                 if (ii?.data?.rightImage) {
                   // 新版置顶微博皇冠
                   delete ii.data.rightImage;
@@ -448,10 +448,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // }
 
 
-              // if (item?.data?.cleaned !== true) {
-              //   // 个人微博页刷完后的推荐微博
-              //   continue;
-              // }
+              if (item?.data?.cleaned !== true) {
+                // 个人微博页刷完后的推荐微博
+                continue;
+              }
               newItems.push(item);
             }
           }
