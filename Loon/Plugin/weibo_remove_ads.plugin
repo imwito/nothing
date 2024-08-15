@@ -55,8 +55,8 @@ http-response ^https:\/\/api\.weibo\.cn\/2\/(cardlist|page)\? script-path = http
 http-response ^https:\/\/api\.weibo\.cn\/2\/comments\/build_comments\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/(container\/asyn|flowlist)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/friendships\/(create|destroy)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
-http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/(dealatt|me|statuses\/tab|userinfo)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
-# http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
+#http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/(dealatt|me|statuses\/tab|userinfo)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
+http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/statuses\/(container_timeline(_hot|_topic|_topicpage|_unread)?|unread_hot_timeline)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/statuses\/(extend|show)\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/video\/tiny_stream_video_list\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 移除详情页广告
@@ -78,10 +78,6 @@ http-response ^https:\/\/wbapp\.uve\.weibo\.com\/(preload\/get_ad|wbapplua\/wbpu
 # 会员图标
 http-response ^https:\/\/new\.vip\.weibo\.cn\/aj\/appicon\/list\? script-path = https://raw.githubusercontent.com/imwito/nothing/main/Script/weibo.js, requires-body = true, tag = 会员图标
 
-# 跳过重定向页面以直接访问 //weibo.cn, shop.sc.weibo.com, t.cn, sinaurl.cn
-# http-request ^https:\/\/weibo\.cn\/sinaurl\?(.*&)?(u|toasturl|goto)= script-path = https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo/Weibo_remove_redirect.js, tag = 跳过重定向
-# http-request ^https:\/\/shop\.sc\.weibo\.com\/h5\/jump\/error\?(.*&)?url= script-path = https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo/Weibo_remove_redirect.js, tag = 跳过重定向
-# http-response ^https:\/\/(sinaurl|t)\.cn\/ script-path = https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo/Weibo_remove_redirect.js, tag = 跳过重定向
 
 [Mitm]
 hostname = *.weibo.cn, *.weibo.com, weibo.com
