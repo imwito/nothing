@@ -1,5 +1,5 @@
 // 2024-08-15
-// 保留赞过的微博，移除tab修改
+// 保留赞过的微博，移除tab和我的多余修改
 const url = $request.url;
 if (!$response.body) $done({});
 let body = $response.body;
@@ -549,6 +549,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         //   // 移除其他推广
         //   continue;
         // }
+        else {
+          newItems.push(item);
+        }s
       }
       obj.items = newItems;
     }
