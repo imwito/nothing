@@ -1,5 +1,5 @@
-// 2024-08-13 14:45
-
+// 2024-08-15
+// 保留赞过的微博，移除tab修改
 const url = $request.url;
 if (!$response.body) $done({});
 let body = $response.body;
@@ -213,9 +213,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       }
     }
     // 投票窗口
-    // if (obj?.status?.page_info) {
-    //   removeVoteInfo(obj?.status);
-    // }
+    if (obj?.status?.page_info) {
+      removeVoteInfo(obj?.status);
+    }
   } else if (url.includes("/2/container/asyn")) {
     if (obj?.items?.length > 0) {
       let newItems = [];
@@ -233,7 +233,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         if (item?.items?.length > 0) {
           for (let i of item.items) {
             // 投票窗口
-            // removeVoteInfo(i?.data);
+            removeVoteInfo(i?.data);
           }
         }
         newItems.push(item);
@@ -251,7 +251,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         if (item?.items?.length > 0) {
           for (let i of item.items) {
             // 投票窗口
-            // removeVoteInfo(i?.data);
+            removeVoteInfo(i?.data);
           }
         }
       }
@@ -312,15 +312,15 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (i?.pageDatas?.length > 0) {
                   let newII = [];
                   for (let ii of i.pageDatas) {
-                    if (["全部关注", "最新微博", "特别关注", "原创", "超话社区", "好友圈", "视频"]?.includes(ii?.title)) {
+                    if (["最新微博", "特别关注", "好友圈", "视频","全部关注","原创","超话社区"]?.includes(ii?.title)) {
                       // 白名单列表
                       newII.push(ii);
                     } else {
                       continue;
                     }
-                    if (ii?.title === "最新微博") {
-                      ii.title = "微博";
-                    }
+                    // if (ii?.title === "最新微博") {
+                    //   ii.title = "微博";
+                    // }
                   }
                   i.pageDatas = newII;
                 }
@@ -389,10 +389,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           newItems.push(item);
         } else if (item?.category === "group") {
           // 遍历group,保留置顶微博
-          // if (item?.header?.data?.icon) {
-          //   // 置顶微博背景图
-          //   delete item.header.data.icon;
-          // }
+          if (item?.header?.data?.icon) {
+            // 置顶微博背景图
+            delete item.header.data.icon;
+          }
           if (item?.itemId?.includes("INTEREST_PEOPLE")) {
             // 可能感兴趣的人
             continue;
@@ -410,7 +410,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 // 信息流推广
                 removeFeedAd(ii?.data);
                 // 投票窗口
-                // removeVoteInfo(ii?.data);
+                removeVoteInfo(ii?.data);
                 // 评论指引
                 if (ii?.data?.enable_comment_guide) {
                   ii.data.enable_comment_guide = false;
@@ -421,14 +421,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 //   // 最近关注与互动过的博主
                 //   continue;
                 // }
-                // if (ii?.data?.rightImage) {
-                //   // 新版置顶微博皇冠
-                //   delete ii.data.rightImage;
-                // }
-                // if (ii?.data?.backgroundImage) {
-                //   // 新版置顶微博背景图
-                //   delete ii.data.backgroundImage;
-                // }
+                if (ii?.data?.rightImage) {
+                  // 新版置顶微博皇冠
+                  delete ii.data.rightImage;
+                }
+                if (ii?.data?.backgroundImage) {
+                  // 新版置顶微博背景图
+                  delete ii.data.backgroundImage;
+                }
                 newII.push(ii);
               }
             }
@@ -441,13 +441,15 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 信息流推广
               removeFeedAd(item?.data);
               // 投票窗口
-              // removeVoteInfo(item?.data);
+              removeVoteInfo(item?.data);
               if (item?.data?.source?.includes("生日动态")) {
                 // 移除生日祝福微博
                 continue;
               }
-
-
+              // if (item?.data?.title?.text !== "热门" && item?.data?.title?.structs?.length > 0) {
+              //   // 移除赞过的微博 保留热门内容
+              //   continue;
+              // }
               // if (item?.data?.cleaned !== true) {
               //   // 个人微博页刷完后的推荐微博
               //   continue;
@@ -540,12 +542,13 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             delete item.body;
           }
           newItems.push(item);
-        } else if (itemId === "100505_-_chaohua" || itemId === "100505_-_recentlyuser") {
-          newItems.push(item);
-        } else {
-          // 移除其他推广
-          continue;
-        }
+        } 
+        // else if (itemId === "100505_-_chaohua" || itemId === "100505_-_recentlyuser") {
+        //   newItems.push(item);
+        // } else {
+        //   // 移除其他推广
+        //   continue;
+        // }
       }
       obj.items = newItems;
     }
@@ -565,7 +568,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 卡片挂件,关注按钮
               removeAvatar(group?.mblog);
               // 投票窗口
-              // removeVoteInfo(group?.mblog);
+              removeVoteInfo(group?.mblog);
             }
             newGroup.push(group);
           }
@@ -576,7 +579,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             // 卡片挂件,关注按钮
             removeAvatar(card?.mblog);
             // 投票窗口
-            // removeVoteInfo(card?.mblog);
+            removeVoteInfo(card?.mblog);
           }
           newCards.push(card);
         }
@@ -798,7 +801,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                     delete group.mblog.common_struct;
                   }
                   // 投票窗口
-                  // removeVoteInfo(group?.mblog);
+                  removeVoteInfo(group?.mblog);
                   // 新版热推
                   if (group?.mblog?.is_ad === 1) {
                     continue;
@@ -832,7 +835,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 delete card.mblog.common_struct;
               }
               // 投票窗口
-              // removeVoteInfo(card?.mblog);
+              removeVoteInfo(card?.mblog);
               // 隐藏在 cards 里面的投票窗口
               if (card?.mblog?.page_info?.cards?.length > 0) {
                 let page = card.mblog.page_info;
@@ -858,7 +861,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             // 信息流推广
             removeFeedAd(item?.data);
             // 投票窗口
-            // removeVoteInfo(item?.data);
+            removeVoteInfo(item?.data);
             newItems.push(item);
           } else if (item?.category === "group") {
             if (item?.items?.length > 0) {
@@ -908,7 +911,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             // 信息流推广
             removeFeedAd(item?.data);
             // 投票窗口
-            // removeVoteInfo(item?.data);
+            removeVoteInfo(item?.data);
             newItems.push(item);
           } else {
             // 移除其他推广
@@ -953,7 +956,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               delete item.data.action_button_icon_dic;
             }
             // 投票窗口
-            // removeVoteInfo(item?.data);
+            removeVoteInfo(item?.data);
             // 快转内容
             if (item?.data?.screen_name_suffix_new?.length > 0) {
               if (item?.data?.screen_name_suffix_new?.[3]?.content === "快转了") {
@@ -1136,7 +1139,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       delete obj.reward_info;
     }
     // 投票窗口
-    // removeVoteInfo(obj);
+    removeVoteInfo(obj);
   } else if (url.includes("/2/video/tiny_stream_video_list")) {
     if (obj?.statuses?.length > 0) {
       // 移除视频自动连播
@@ -1273,8 +1276,8 @@ function removeFeedAd(item) {
 }
 
 // 移除投票窗口
-// function removeVoteInfo(item) {
-//   if (item?.page_info?.media_info?.vote_info) {
-//     delete item.page_info.media_info.vote_info;
-//   }
-// }
+function removeVoteInfo(item) {
+  if (item?.page_info?.media_info?.vote_info) {
+    delete item.page_info.media_info.vote_info;
+  }
+}
