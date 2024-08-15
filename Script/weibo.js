@@ -387,55 +387,57 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             }
           }
           newItems.push(item);
-        } else if (item?.category === "group") {
-          // 遍历group,保留置顶微博
-          if (item?.header?.data?.icon) {
-            // 置顶微博背景图
-            delete item.header.data.icon;
-          }
-          if (item?.itemId?.includes("INTEREST_PEOPLE")) {
-            // 可能感兴趣的人
-            continue;
-          }
-          if (item?.profile_type_id === "weibo_cardpics") {
-            // 近期热门 精选微博 那年今日等横版内容
-            continue;
-          }
-          if (item?.items?.length > 0) {
-            let newII = [];
-            for (let ii of item.items) {
-              if (ii?.category === "feed") {
-                // 头像挂件,关注按钮
-                removeAvatar(ii?.data);
-                // 信息流推广
-                removeFeedAd(ii?.data);
-                // 投票窗口
-                removeVoteInfo(ii?.data);
-                // 评论指引
-                if (ii?.data?.enable_comment_guide) {
-                  ii.data.enable_comment_guide = false;
-                }
-                newII.push(ii);
-              } else if (ii?.category === "card") {
-                if ([48, 176]?.includes(ii?.data?.card_type)) {
-                  // 最近关注与互动过的博主
-                  continue;
-                }
-                if (ii?.data?.rightImage) {
-                  // 新版置顶微博皇冠
-                  delete ii.data.rightImage;
-                }
-                if (ii?.data?.backgroundImage) {
-                  // 新版置顶微博背景图
-                  delete ii.data.backgroundImage;
-                }
-                newII.push(ii);
-              }
-            }
-            item.items = newII;
-          }
-          newItems.push(item);
-        } else if (item?.category === "feed") {
+        } 
+        // else if (item?.category === "group") {
+        //   // 遍历group,保留置顶微博
+        //   if (item?.header?.data?.icon) {
+        //     // 置顶微博背景图
+        //     delete item.header.data.icon;
+        //   }
+        //   if (item?.itemId?.includes("INTEREST_PEOPLE")) {
+        //     // 可能感兴趣的人
+        //     continue;
+        //   }
+        //   if (item?.profile_type_id === "weibo_cardpics") {
+        //     // 近期热门 精选微博 那年今日等横版内容
+        //     continue;
+        //   }
+        //   if (item?.items?.length > 0) {
+        //     let newII = [];
+        //     for (let ii of item.items) {
+        //       if (ii?.category === "feed") {
+        //         // 头像挂件,关注按钮
+        //         removeAvatar(ii?.data);
+        //         // 信息流推广
+        //         removeFeedAd(ii?.data);
+        //         // 投票窗口
+        //         removeVoteInfo(ii?.data);
+        //         // 评论指引
+        //         if (ii?.data?.enable_comment_guide) {
+        //           ii.data.enable_comment_guide = false;
+        //         }
+        //         newII.push(ii);
+        //       } else if (ii?.category === "card") {
+        //         if ([48, 176]?.includes(ii?.data?.card_type)) {
+        //           // 最近关注与互动过的博主
+        //           continue;
+        //         }
+        //         if (ii?.data?.rightImage) {
+        //           // 新版置顶微博皇冠
+        //           delete ii.data.rightImage;
+        //          }
+        //         if (ii?.data?.backgroundImage) {
+        //           // 新版置顶微博背景图
+        //           delete ii.data.backgroundImage;
+        //         }
+        //         newII.push(ii);
+        //       }
+        //     }
+        //     item.items = newII;
+        //   }
+        //   newItems.push(item);
+        // }
+        else if (item?.category === "feed") {
           if (item?.data) {
             if (!isAd(item?.data)) {
               // 信息流推广
