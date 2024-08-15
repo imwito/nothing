@@ -421,14 +421,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 //   // 最近关注与互动过的博主
                 //   continue;
                 // }
-                if (ii?.data?.rightImage) {
-                  // 新版置顶微博皇冠
-                  delete ii.data.rightImage;
-                }
-                if (ii?.data?.backgroundImage) {
-                  // 新版置顶微博背景图
-                  delete ii.data.backgroundImage;
-                }
+                // if (ii?.data?.rightImage) {
+                //   // 新版置顶微博皇冠
+                //   delete ii.data.rightImage;
+                // }
+                // if (ii?.data?.backgroundImage) {
+                //   // 新版置顶微博背景图
+                //   delete ii.data.backgroundImage;
+                // }
                 newII.push(ii);
               }
             }
@@ -448,10 +448,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // }
 
 
-              if (item?.data?.cleaned !== true) {
-                // 个人微博页刷完后的推荐微博
-                continue;
-              }
+              // if (item?.data?.cleaned !== true) {
+              //   // 个人微博页刷完后的推荐微博
+              //   continue;
+              // }
               newItems.push(item);
             }
           }
@@ -558,9 +558,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           for (let group of card.card_group) {
             let cardType = group.card_type;
             // 22那年今天
-            if ([22]?.includes(cardType)) {
-              continue;
-            }
+            // if ([22]?.includes(cardType)) {
+            //   continue;
+            // }
             if (group?.mblog) {
               // 卡片挂件,关注按钮
               removeAvatar(group?.mblog);
