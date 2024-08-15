@@ -213,9 +213,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       }
     }
     // 投票窗口
-    if (obj?.status?.page_info) {
-      removeVoteInfo(obj?.status);
-    }
+    // if (obj?.status?.page_info) {
+    //   removeVoteInfo(obj?.status);
+    // }
   } else if (url.includes("/2/container/asyn")) {
     if (obj?.items?.length > 0) {
       let newItems = [];
@@ -233,7 +233,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         if (item?.items?.length > 0) {
           for (let i of item.items) {
             // 投票窗口
-            removeVoteInfo(i?.data);
+            // removeVoteInfo(i?.data);
           }
         }
         newItems.push(item);
@@ -251,7 +251,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         if (item?.items?.length > 0) {
           for (let i of item.items) {
             // 投票窗口
-            removeVoteInfo(i?.data);
+            // removeVoteInfo(i?.data);
           }
         }
       }
@@ -393,10 +393,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           //   // 置顶微博背景图
           //   delete item.header.data.icon;
           // }
-          // if (item?.itemId?.includes("INTEREST_PEOPLE")) {
-          //   // 可能感兴趣的人
-          //   continue;
-          // }
+          if (item?.itemId?.includes("INTEREST_PEOPLE")) {
+            // 可能感兴趣的人
+            continue;
+          }
           // if (item?.profile_type_id === "weibo_cardpics") {
           //   // 近期热门 精选微博 那年今日等横版内容
           //   continue;
@@ -442,10 +442,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               removeFeedAd(item?.data);
               // 投票窗口
               // removeVoteInfo(item?.data);
-              // if (item?.data?.source?.includes("生日动态")) {
-              //   // 移除生日祝福微博
-              //   continue;
-              // }
+              if (item?.data?.source?.includes("生日动态")) {
+                // 移除生日祝福微博
+                continue;
+              }
 
 
               // if (item?.data?.cleaned !== true) {
@@ -565,7 +565,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 卡片挂件,关注按钮
               removeAvatar(group?.mblog);
               // 投票窗口
-              removeVoteInfo(group?.mblog);
+              // removeVoteInfo(group?.mblog);
             }
             newGroup.push(group);
           }
@@ -576,7 +576,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             // 卡片挂件,关注按钮
             removeAvatar(card?.mblog);
             // 投票窗口
-            removeVoteInfo(card?.mblog);
+            // removeVoteInfo(card?.mblog);
           }
           newCards.push(card);
         }
@@ -798,7 +798,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                     delete group.mblog.common_struct;
                   }
                   // 投票窗口
-                  removeVoteInfo(group?.mblog);
+                  // removeVoteInfo(group?.mblog);
                   // 新版热推
                   if (group?.mblog?.is_ad === 1) {
                     continue;
@@ -832,7 +832,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 delete card.mblog.common_struct;
               }
               // 投票窗口
-              removeVoteInfo(card?.mblog);
+              // removeVoteInfo(card?.mblog);
               // 隐藏在 cards 里面的投票窗口
               if (card?.mblog?.page_info?.cards?.length > 0) {
                 let page = card.mblog.page_info;
@@ -858,7 +858,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             // 信息流推广
             removeFeedAd(item?.data);
             // 投票窗口
-            removeVoteInfo(item?.data);
+            // removeVoteInfo(item?.data);
             newItems.push(item);
           } else if (item?.category === "group") {
             if (item?.items?.length > 0) {
@@ -908,7 +908,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             // 信息流推广
             removeFeedAd(item?.data);
             // 投票窗口
-            removeVoteInfo(item?.data);
+            // removeVoteInfo(item?.data);
             newItems.push(item);
           } else {
             // 移除其他推广
@@ -953,7 +953,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               delete item.data.action_button_icon_dic;
             }
             // 投票窗口
-            removeVoteInfo(item?.data);
+            // removeVoteInfo(item?.data);
             // 快转内容
             if (item?.data?.screen_name_suffix_new?.length > 0) {
               if (item?.data?.screen_name_suffix_new?.[3]?.content === "快转了") {
@@ -1136,7 +1136,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       delete obj.reward_info;
     }
     // 投票窗口
-    removeVoteInfo(obj);
+    // removeVoteInfo(obj);
   } else if (url.includes("/2/video/tiny_stream_video_list")) {
     if (obj?.statuses?.length > 0) {
       // 移除视频自动连播
@@ -1273,8 +1273,8 @@ function removeFeedAd(item) {
 }
 
 // 移除投票窗口
-function removeVoteInfo(item) {
-  if (item?.page_info?.media_info?.vote_info) {
-    delete item.page_info.media_info.vote_info;
-  }
-}
+// function removeVoteInfo(item) {
+//   if (item?.page_info?.media_info?.vote_info) {
+//     delete item.page_info.media_info.vote_info;
+//   }
+// }
