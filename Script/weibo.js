@@ -1,4 +1,4 @@
-// 2024-08-15
+// 2024-08-16
 // 保留赞过的微博，移除tab修改
 const url = $request.url;
 if (!$response.body) $done({});
@@ -471,26 +471,16 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           }
           newItems.push(item);
         } else if (item?.category === "feed") {
-          if (item?.data) {
-            if (!isAd(item?.data)) {
-              // 信息流推广
-              removeFeedAd(item?.data);
-              // 投票窗口
-              removeVoteInfo(item?.data);
-              if (item?.data?.source?.includes("生日动态")) {
-                // 移除生日祝福微博
-                continue;
-              }
-              // if (item?.data?.title?.text !== "热门" && item?.data?.title?.structs?.length > 0) {
-              //   // 移除赞过的微博 保留热门内容
-              //   continue;
-              // }
-              // if (item?.data?.cleaned !== true) {
-              //   // 个人微博页刷完后的推荐微博
-              //   continue;
-              // }
-              newItems.push(item);
+          if (!isAd(item?.data)) {
+            // 信息流推广
+            removeFeedAd(item?.data);
+            // 投票窗口
+            removeVoteInfo(item?.data);
+            if (item?.data?.source?.includes("生日动态")) {
+              // 移除生日祝福微博
+              continue;
             }
+            newItems.push(item);
           }
         }
       }
