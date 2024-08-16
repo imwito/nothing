@@ -1,4 +1,4 @@
-// 2024-08-16
+// 2024-08-15
 // 保留赞过的微博，移除tab修改
 const url = $request.url;
 if (!$response.body) $done({});
@@ -820,6 +820,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         delete obj.header.data[i];
       }
     }
+    if (obj?.loadedInfo?.serviceMap?.layer?.pic) {
+      // 搜索结果 悬浮窗
+      delete obj.loadedInfo.serviceMap.layer;
+    }
     if (obj?.cards?.length > 0) {
       let newCards = [];
       for (let card of obj.cards) {
@@ -928,8 +932,12 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (!isAd(ii?.data)) {
                   if (ii?.data) {
                     removeAvatar(ii?.data);
-                    // 17相关搜索 22广告图 42,236智搜问答 89商品推广视频
-                    if ([17, 22, 42, 89, 236]?.includes(ii?.data?.card_type)) {
+                    // 3推广卡片 17相关搜索 22广告图 42,236智搜问答 89商品推广视频 206推广视频
+                    if (
+                      [3, 17, 22, 42, 89, 236, 206]?.includes(
+                        ii?.data?.card_type
+                      )
+                    ) {
                       continue;
                     }
                     // 商品推广desc
