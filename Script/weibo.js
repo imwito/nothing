@@ -1,4 +1,4 @@
-// 2024-08-15
+// 2024-08-16
 // 保留赞过的微博，移除tab修改
 const url = $request.url;
 if (!$response.body) $done({});
