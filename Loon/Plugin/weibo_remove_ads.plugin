@@ -7,7 +7,7 @@
 #!system_version = 
 #!loon_version = 3.2.1(732)
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Weibo.png
-#!date = 2024-08-15
+#!date = 2024-08-26
 
 [Rule]
 # 请求放行
