@@ -1,6 +1,7 @@
-// 2024-08-16
+// 2024-08-26
 // 保留赞过的微博，移除tab修改
 const url = $request.url;
+if (!$response) $done({});
 if (!$response.body) $done({});
 let body = $response.body;
 
@@ -294,10 +295,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     if (obj?.items?.length > 0) {
       let newItems = [];
       for (let item of obj.items) {
+        if (item?.data?.itemid === "hot-search-push-notice") {
+          // 开启推送通知的提示
+          continue;
+        }
         if (item?.items?.length > 0) {
           let newII = [];
           for (let i of item.items) {
-            if (i?.data.hasOwnProperty("promotion")) {
+            if (i?.data?.hasOwnProperty("promotion")) {
               // 热搜列表中的推广项目
               continue;
             } else if (/_img_search_stick/.test(i?.data?.pic)) {
@@ -932,9 +937,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (!isAd(ii?.data)) {
                   if (ii?.data) {
                     removeAvatar(ii?.data);
-                    // 3推广卡片 17相关搜索 22广告图 42,236智搜问答 89商品推广视频 206推广视频
+                    // 3推广卡片 17相关搜索 22广告图 30推荐博主 42,236智搜问答 89商品推广视频 206推广视频
                     if (
-                      [3, 17, 22, 42, 89, 236, 206]?.includes(
+                      [3, 17, 22, 30, 42, 89, 236, 206]?.includes(
                         ii?.data?.card_type
                       )
                     ) {
@@ -948,9 +953,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                       continue;
                     }
                     // 商品橱窗
-                    if (ii?.data?.semantic_brand_params) {
-                      delete ii.data?.semantic_brand_params;
-                    }
+                    removeFeedAd(ii?.data);
                   }
                   newII.push(ii);
                 }
@@ -1159,7 +1162,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     }
     if (obj.trend?.titles) {
       let title = obj.trend.titles.title;
-      if (["博主好物种草", "相关推荐"]?.includes(title)) {
+      if (/(博主好物种草|相关推荐|专区)/?.test(title)) {
         delete obj.trend;
       }
     }
