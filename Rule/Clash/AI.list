@@ -51,3 +51,6 @@ DOMAIN-SUFFIX,perplexity.ai
 DOMAIN,chat.mistral.ai
 DOMAIN,console.mistral.ai
 DOMAIN-SUFFIX,mistral.ai
+
+# Groq
+DOMAIN-SUFFIX,groq.com
