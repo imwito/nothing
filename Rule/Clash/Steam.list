@@ -1,7 +1,7 @@
 # Steam
 DOMAIN-SUFFIX,steamcontent.com
 DOMAIN-SUFFIX,steamserver.net
-DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,content.steampowered.com
 DOMAIN,content1.steampowered.com
 DOMAIN,content2.steampowered.com
 DOMAIN,content3.steampowered.com
@@ -16,23 +16,24 @@ DOMAIN,steam.eca.qtlglb.com
 DOMAIN,steam.naeu.qtlglb.com
 DOMAIN,steam.ru.qtlglb.com
 DOMAIN,edge.steam-dns.top.comcast.net
-DOMAIN-SUFFIX,steampipe.akamaized.net
-DOMAIN-SUFFIX,steampipe-kr.akamaized.net
-DOMAIN-SUFFIX,steampipe-partner.akamaized.net
+DOMAIN,steampipe.akamaized.net
+DOMAIN,steampipe-kr.akamaized.net
+DOMAIN,steampipe-partner.akamaized.net
 
 # Epic
-DOMAIN,download.epicgames.com
+DOMAIN-SUFFIX,download.epicgames.com
 DOMAIN,download2.epicgames.com
 DOMAIN,download3.epicgames.com
 DOMAIN,download4.epicgames.com
-DOMAIN-SUFFIX,epicgames-download1.akamaized.net
+DOMAIN,epicgames-download1.akamaized.net
 DOMAIN,fastly-download.epicgames.com
 
 # PlayStation
 DOMAIN-SUFFIX,dl.playstation.net
 
 # Battle.net / Blizzard
-DOMAIN-SUFFIX,akamaihd.net
+DOMAIN,blzddist1-a.akamaihd.net
+DOMAIN,blzddistkr1-a.akamaihd.net
 DOMAIN,blizzard.gcdn.cloudn.co.kr
 DOMAIN-SUFFIX,cdn.blizzard.com
 DOMAIN,level3.blizzard.com
@@ -40,7 +41,7 @@ DOMAIN,level3.blizzard.com
 # Gog
 DOMAIN,gog-cdn-fastly-cp77.gog.com
 DOMAIN,gog-cdn-fastly.gog.com
-DOMAIN-SUFFIX,gog-cdn-lumen.secure2.footprint.net
+DOMAIN,gog-cdn-lumen.secure2.footprint.net
 
 # Xbox
 DOMAIN,pf-cdn-content-prod.azureedge.net
@@ -53,18 +54,19 @@ DOMAIN,download.xbox.com
 DOMAIN-SUFFIX,cdn.ubi.com
 
 # EA Origin
-DOMAIN,download.dm.origin.com
-DOMAIN-SUFFIX,akamaihd.net
+DOMAIN-SUFFIX,download.dm.origin.com
+DOMAIN,origin-a.akamaihd.net
 DOMAIN-SUFFIX,cdn.ea.com
 DOMAIN,dlgarenanow-a.akamaihd.net
 
 # Riot
-DOMAIN-SUFFIX,riotcdn.net
+DOMAIN-SUFFIX,.dyn.riotcdn.net
 
 # Bethesda
-DOMAIN-SUFFIX,cdp.bethesda.net
+DOMAIN-SUFFIX,content.cdp.bethesda.net
+DOMAIN-SUFFIX,download.cdp.bethesda.net
 
 # Misc
 DOMAIN,client.hikarifield.co.jp
 DOMAIN,download.hikarifield.co.jp
-DOMAIN-SUFFIX,akamaized.net
+DOMAIN,gamedownloads-rockstargames-com.akamaized.net
