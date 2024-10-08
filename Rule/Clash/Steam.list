@@ -60,7 +60,7 @@ DOMAIN-SUFFIX,cdn.ea.com
 DOMAIN,dlgarenanow-a.akamaihd.net
 
 # Riot
-DOMAIN-SUFFIX,.dyn.riotcdn.net
+DOMAIN-SUFFIX,dyn.riotcdn.net
 
 # Bethesda
 DOMAIN-SUFFIX,content.cdp.bethesda.net
