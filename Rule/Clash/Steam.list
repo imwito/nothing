@@ -63,6 +63,11 @@ DOMAIN,xvcf2.xboxlive.com
 DOMAIN,packagespc.xboxlive.com
 DOMAIN,download.xbox.com
 
+DOMAIN,assets1.xboxlive.cn
+DOMAIN,assets2.xboxlive.cn
+DOMAIN,dl.delivery.mp.microsoft.com
+DOMAIN,tlu.dl.delivery.mp.microsoft.com
+
 # Ubisoft
 DOMAIN-SUFFIX,cdn.ubi.com
 
