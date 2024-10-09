@@ -87,6 +87,57 @@ DOMAIN-SUFFIX,cn.windowssearch.com
 DOMAIN-SUFFIX,ctldl.windowsupdate.com
 DOMAIN-SUFFIX,download.windowsupdate.com
 
+# 微软全家桶上传、下载、同步、在线安装[国际]
+DOMAIN,azurestackhubuat.download.prss.microsoft.com
+DOMAIN,azurestackreleases.download.prss.microsoft.com
+DOMAIN,azuremigratetest.download.prss.microsoft.com
+DOMAIN,azuremigrate.download.prss.microsoft.com
+DOMAIN,afdshield-or.download.prss.microsoft.com
+DOMAIN,azurestackhub.download.prss.microsoft.com
+DOMAIN,contentsync.onenote.com
+DOMAIN,collaborateppe.download.prss.microsoft.com
+DOMAIN,cbdstest.download.prss.microsoft.com
+DOMAIN,collaborate.download.prss.microsoft.com
+DOMAIN,d.docs.live.net
+DOMAIN,dreamspark.download.prss.microsoft.com
+DOMAIN,db.download.prss.microsoft.com
+DOMAIN,dreamsparkuat.download.prss.microsoft.com
+DOMAIN,hierarchyapi.onenote.com
+DOMAIN,itacademy.download.prss.microsoft.com
+DOMAIN,itacademyuat.download.prss.microsoft.com
+DOMAIN,lex.download.prss.microsoft.com
+DOMAIN,lexuat.download.prss.microsoft.com
+DOMAIN,msproductuat.download.prss.microsoft.com
+DOMAIN,msconnect.download.prss.microsoft.com
+DOMAIN,mbsuat.download.prss.microsoft.com
+DOMAIN,myvsuat.download.prss.microsoft.com
+DOMAIN,msdprod-ad.download.prss.microsoft.com
+DOMAIN,mpnbenefitsrtl.download.prss.microsoft.com
+DOMAIN,msdn.download.prss.microsoft.com
+DOMAIN,myvs.download.prss.microsoft.com
+DOMAIN,mpnbenefitsrtluat.download.prss.microsoft.com
+DOMAIN,msproduct.download.prss.microsoft.com
+DOMAIN,mbs.download.prss.microsoft.com
+DOMAIN,mpnbenefits.download.prss.microsoft.com
+DOMAIN,officecdn.microsoft.com
+DOMAIN,oemsocuat.download.prss.microsoft.com
+DOMAIN,officemkt.download.prss.microsoft.com
+DOMAIN,oemsoc.download.prss.microsoft.com
+DOMAIN,osrelease.download.prss.microsoft.com
+DOMAIN,officemktuat.download.prss.microsoft.com
+DOMAIN,public.bn.files.1drv.com
+DOMAIN,rsm.download.prss.microsoft.com
+DOMAIN,rsmuat.download.prss.microsoft.com
+DOMAIN,storecorefulfillment.download.prss.microsoft.com
+DOMAIN,surface.download.prss.microsoft.com
+DOMAIN,software-static.download.prss.microsoft.com
+DOMAIN,software.download.prss.microsoft.com
+DOMAIN,vlportal.download.prss.microsoft.com
+DOMAIN,volic.download.prss.microsoft.com
+DOMAIN,visualstudio.download.prss.microsoft.com
+DOMAIN,windbg.download.prss.microsoft.com
+DOMAIN-SUFFIX,storage.live.com
+
 # Ubisoft
 DOMAIN-SUFFIX,cdn.ubi.com
 
