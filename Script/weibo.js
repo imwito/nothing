@@ -3,7 +3,7 @@
 */
 // 2024-10-31 11:40
 // 2024-11-02 10:00
-// 保留赞过的微博，生日祝福微博，移除tab修改
+// 保留赞过的微博，生日祝福微博，移除tab修改，注释评论气泡、搜索框填充词
 const url = $request.url;
 if (!$response) $done({});
 if (!$response.body) $done({});
@@ -135,12 +135,12 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             if (item?.data?.comment_bubble) {
               delete item.data.comment_bubble; // 评论气泡
             }
-            if (item?.data?.comment_bullet_screens_message) {
-              delete item.data.comment_bullet_screens_message; // 评论弹幕
-            }
-            if (item?.data?.hot_icon) {
-              delete item.data.hot_icon; // 热评小图标 弹幕 首评
-            }
+            // if (item?.data?.comment_bullet_screens_message) {
+            //   delete item.data.comment_bullet_screens_message; // 评论弹幕
+            // }
+            // if (item?.data?.hot_icon) {
+            //   delete item.data.hot_icon; // 热评小图标 弹幕 首评
+            // }
             if (item?.data?.vip_button) {
               delete item.data.vip_button; // 会员气泡按钮
             }
@@ -167,18 +167,18 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       let newItems = [];
       for (let item of obj.root_comments) {
         if (!isAd(item)) {
-          if (item?.comment_bubble) {
-            delete item.comment_bubble; // 评论气泡 新版本
-          }
-          if (item?.data?.comment_bubble) {
-            delete item.data.comment_bubble; // 评论气泡
-          }
-          if (item?.data?.comment_bullet_screens_message) {
-            delete item.data.comment_bullet_screens_message; // 评论弹幕
-          }
-          if (item?.data?.hot_icon) {
-            delete item.data.hot_icon; // 热评小图标 弹幕 首评
-          }
+          // if (item?.comment_bubble) {
+          //   delete item.comment_bubble; // 评论气泡 新版本
+          // }
+          // if (item?.data?.comment_bubble) {
+          //   delete item.data.comment_bubble; // 评论气泡
+          // }
+          // if (item?.data?.comment_bullet_screens_message) {
+          //   delete item.data.comment_bullet_screens_message; // 评论弹幕
+          // }
+          // if (item?.data?.hot_icon) {
+          //   delete item.data.hot_icon; // 热评小图标 弹幕 首评
+          // }
           if (item?.data?.vip_button) {
             delete item.data.vip_button; // 会员气泡按钮
           }
@@ -403,10 +403,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 可能感兴趣的人
               continue;
             }
-            if (item?.profile_type_id === "weibo_cardpics") {
-              // 近期热门 精选微博 那年今日等横版内容
-              continue;
-            }
+            // if (item?.profile_type_id === "weibo_cardpics") {
+            //   // 近期热门 精选微博 那年今日等横版内容
+            //   continue;
+            // }
             if (item?.items?.length > 0) {
               let newII = [];
               for (let ii of item.items) {
@@ -732,18 +732,18 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           if (["band_channel", "discover_channel", "trends_channel"]?.includes(channel?.key)) {
             let payload = channel.payload;
             if (payload) {
-              if (payload?.loadedInfo) {
-                // 去除搜索框填充词
-                if (payload?.loadedInfo?.searchBarContent?.length > 0) {
-                  payload.loadedInfo.searchBarContent = [];
-                }
-                if (payload?.loadedInfo?.headerBack?.channelStyleMap) {
-                  delete payload.loadedInfo.headerBack.channelStyleMap; // 去除搜索背景图片
-                }
-                if (payload?.loadedInfo?.searchBarStyleInfo) {
-                  delete payload.loadedInfo.searchBarStyleInfo; // 搜索框样式
-                }
-              }
+              // if (payload?.loadedInfo) {
+              //   // 去除搜索框填充词
+              //   if (payload?.loadedInfo?.searchBarContent?.length > 0) {
+              //     payload.loadedInfo.searchBarContent = [];
+              //   }
+              //   if (payload?.loadedInfo?.headerBack?.channelStyleMap) {
+              //     delete payload.loadedInfo.headerBack.channelStyleMap; // 去除搜索背景图片
+              //   }
+              //   if (payload?.loadedInfo?.searchBarStyleInfo) {
+              //     delete payload.loadedInfo.searchBarStyleInfo; // 搜索框样式
+              //   }
+              // }
               if (payload?.items?.length > 0) {
                 let newItems = [];
                 for (let item of payload.items) {
