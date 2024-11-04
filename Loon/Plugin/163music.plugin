@@ -1,4 +1,4 @@
-#!name = 网易云音乐去广告
+#!name = 网易云音乐去广告ME
 #!desc = 过滤网易云音乐广告，并允许自定义界面。
 #!openUrl = https://apps.apple.com/app/id590338362
 #!author = RuCu6[https://github.com/RuCu6], Keywos[https://github.com/Keywos]
@@ -48,8 +48,10 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:ios\/version|mlivestream\/entrance\/playpage\/|link\/position\/show\/strategy|link\/scene\/show\/resource|v1\/content\/exposure\/comment\/banner\/) reject-dict
 
 # 搜索页 搜索词 热搜卡片 猜你喜欢 我的应用下方提醒
-^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) reject-dict
-^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) header-del x-aeapi
+^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/) reject-dict
+^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/) header-del x-aeapi
+; ^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) reject-dict
+; ^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) header-del x-aeapi
 
 # 主页播客推荐
 #^https:\/\/interface\d\.music\.163\.com\/eapi\/my\/podcast\/tab\/recommend reject-dict
