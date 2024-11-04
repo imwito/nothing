@@ -50,8 +50,8 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 # 搜索页 搜索词 热搜卡片 猜你喜欢 我的应用下方提醒
 ^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/)) reject-dict
 ^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/)) header-del x-aeapi
-; ^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) reject-dict
-; ^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) header-del x-aeapi
+#^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) reject-dict
+#^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|default\/|rcmd\/keyword\/|specialkeyword\/)) header-del x-aeapi
 
 # 主页播客推荐
 #^https:\/\/interface\d\.music\.163\.com\/eapi\/my\/podcast\/tab\/recommend reject-dict
