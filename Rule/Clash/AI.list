@@ -72,3 +72,6 @@ DOMAIN-SUFFIX,groq.com
 
 # Cloudflare AI Gateway
 DOMAIN,gateway.ai.cloudflare.com
+
+# Bedrock
+DOMAIN-SUFFIX,bedrock.amazonaws.com
