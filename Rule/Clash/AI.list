@@ -74,4 +74,6 @@ DOMAIN-SUFFIX,groq.com
 DOMAIN,gateway.ai.cloudflare.com
 
 # Bedrock
-DOMAIN-SUFFIX,amazonaws.com
+DOMAIN-SUFFIX,bedrock.us-west-2.amazonaws.com
+DOMAIN-SUFFIX,bedrock.us-east-1.amazonaws.com
+DOMAIN-SUFFIX,bedrock.us-east-2.amazonaws.com
