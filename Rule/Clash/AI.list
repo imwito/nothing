@@ -13,6 +13,8 @@ DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,openai.com.cdn.cloudflare.net
+# Sora
+DOMAIN-SUFFIX,sora.com
 
 # Copilot
 DOMAIN,api.githubcopilot.com
