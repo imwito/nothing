@@ -74,3 +74,6 @@ DOMAIN-SUFFIX,groq.com
 
 # Cloudflare AI Gateway
 DOMAIN,gateway.ai.cloudflare.com
+
+# Cursor
+DOMAIN-SUFFIX,cursor.sh
