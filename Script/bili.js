@@ -29,10 +29,10 @@ if (url.includes("/x/resource/show/tab/v2")) {
   }
 } else if (url.includes("/x/v2/account/mine")) {
   // 我的页面
-  const del = ["ipad_upper_sections", "rework_v1", "vip_section", "vip_section_v2"];
-  for (let i of del) {
-    delete obj.data[i]; // 不必要项目
-  }
+  // const del = ["ipad_upper_sections", "rework_v1", "vip_section", "vip_section_v2"];
+  // for (let i of del) {
+  //   delete obj.data[i]; // 不必要项目
+  // }
   // iPad 我的页面
   if (obj?.data?.ipad_recommend_sections?.length > 0) {
     const itemList = [789, 790]; // 789我的关注 790我的消息 791我的钱包 792直播中心 793大会员 794我的课程 2542我的游戏
@@ -65,7 +65,7 @@ if (url.includes("/x/resource/show/tab/v2")) {
                   // "我的钱包",
                   "游戏中心",
                   "会员购中心",
-                  "年度报告",
+                  // "年度报告",
                   // "我的直播",
                   // "漫画",
                   // "社区中心"
@@ -84,6 +84,8 @@ if (url.includes("/x/resource/show/tab/v2")) {
                   if (/user_center\/feedback/g.test(i?.uri)) {
                     newItems.push(i); // 联系客服
                   } else if (/user_center\/setting/g.test(i?.uri)) {
+                    newItems.push(i); // 设置
+                  } else if (/podcast/g.test(i?.uri)) {
                     newItems.push(i); // 设置
                   } else {
                     continue;
