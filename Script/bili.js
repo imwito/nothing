@@ -1,6 +1,6 @@
 // 脚本引用 https://raw.githubusercontent.com/RuCu6/Loon/main/Scripts/bilibili/json.js
 // 2024-11-08 12:30
-
+// 2024-12-21
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
@@ -59,20 +59,14 @@ if (url.includes("/x/resource/show/tab/v2")) {
         if (item?.style === 1 || item?.style === 2) {
           if (item?.title) {
             if (item?.title === "创作中心") {
-              continue; // 跳过创作中心
+              continue; // 创作中心
             } else if (item?.title === "推荐服务") {
-              // 保留指定的推荐服务项目
               if (item?.items?.length > 0) {
                 const keepServices = [
                   "我的课程",
                   "个性装扮",
-                  // "我的钱包",
                   "游戏中心",
                   "会员购中心",
-                  // "年度报告",
-                  // "我的直播",
-                  // "漫画",
-                  // "社区中心"
                 ];
                 item.items = item.items.filter((i) =>
                   keepServices.includes(i?.title)
@@ -99,13 +93,17 @@ if (url.includes("/x/resource/show/tab/v2")) {
                 }
                 item.items = newItems;
               }
+              newSects.push(item);
+            } else {
+              newSects.push(item);
             }
+          } else {
+            newSects.push(item);
           }
         } else {
           continue; // 其他style
         }
       }
-      newSects.push(item);
     }
     obj.data.sections_v2 = newSects;
   }
