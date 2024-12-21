@@ -36,11 +36,15 @@ if (url.includes("/x/resource/show/tab/v2")) {
   // iPad 我的页面
   if (obj?.data?.ipad_recommend_sections?.length > 0) {
     const itemList = [789, 790]; // 789我的关注 790我的消息 791我的钱包 792直播中心 793大会员 794我的课程 2542我的游戏
-    obj.data.ipad_recommend_sections = obj.data.ipad_recommend_sections.filter((i) => itemList?.includes(i.id));
+    obj.data.ipad_recommend_sections = obj.data.ipad_recommend_sections.filter(
+      (i) => itemList?.includes(i.id)
+    );
   }
   if (obj?.data?.ipad_more_sections?.length > 0) {
     const itemList = [797, 798]; // 797我的客服 798设置 1070青少年守护
-    obj.data.ipad_more_sections = obj.data.ipad_more_sections.filter((i) => itemList?.includes(i.id));
+    obj.data.ipad_more_sections = obj.data.ipad_more_sections.filter((i) =>
+      itemList?.includes(i.id)
+    );
   }
   // iPhone 我的页面
   // ... existing code ...
@@ -70,7 +74,9 @@ if (url.includes("/x/resource/show/tab/v2")) {
                   // "漫画",
                   // "社区中心"
                 ];
-                item.items = item.items.filter(i => keepServices.includes(i?.title));
+                item.items = item.items.filter((i) =>
+                  keepServices.includes(i?.title)
+                );
               }
               newSects.push(item);
             } else if (item?.title === "更多服务") {
@@ -93,20 +99,18 @@ if (url.includes("/x/resource/show/tab/v2")) {
                 }
                 item.items = newItems;
               }
-              newSects.push(item);
-            } else {
-              newSects.push(item);
             }
           }
         } else {
           continue; // 其他style
         }
       }
+      newSects.push(item);
     }
     obj.data.sections_v2 = newSects;
   }
 
-// ... existing code ...
+  // ... existing code ...
   // 非会员开启本地会员标识
   if (obj?.data?.vip) {
     if (obj?.data?.vip?.status === 0) {
@@ -122,7 +126,8 @@ if (url.includes("/x/resource/show/tab/v2")) {
         bg_style: 1,
         bg_color: "#FB7299",
         border_color: "",
-        image: "https://i0.hdslb.com/bfs/vip/8d4f8bfc713826a5412a0a27eaaac4d6b9ede1d9.png"
+        image:
+          "https://i0.hdslb.com/bfs/vip/8d4f8bfc713826a5412a0a27eaaac4d6b9ede1d9.png",
       };
       obj.data.vip.nickname_color = "#FB7299";
       obj.data.vip.role = 3;
@@ -179,7 +184,11 @@ if (url.includes("/x/resource/show/tab/v2")) {
 } else if (url.includes("/x/v2/search/square")) {
   // 搜索框
   if (obj?.data) {
-    obj.data = { type: "history", title: "搜索历史", search_hotword_revision: 2 };
+    obj.data = {
+      type: "history",
+      title: "搜索历史",
+      search_hotword_revision: 2,
+    };
   }
 } else if (url.includes("/x/v2/splash")) {
   // 开屏广告
@@ -206,7 +215,10 @@ if (url.includes("/x/resource/show/tab/v2")) {
       }
     }
   }
-} else if (url.includes("/pgc/page/bangumi") || url.includes("/pgc/page/cinema/tab")) {
+} else if (
+  url.includes("/pgc/page/bangumi") ||
+  url.includes("/pgc/page/cinema/tab")
+) {
   // 观影页
   if (obj.result?.modules?.length > 0) {
     obj.result.modules.forEach((i) => {
@@ -238,7 +250,9 @@ if (url.includes("/x/resource/show/tab/v2")) {
     obj.data.shopping_info = { is_show: 0 };
   }
   if (obj?.data?.new_tab_info?.outer_list?.length > 0) {
-    obj.data.new_tab_info.outer_list = obj.data.new_tab_info.outer_list.filter((i) => i?.biz_id !== 33);
+    obj.data.new_tab_info.outer_list = obj.data.new_tab_info.outer_list.filter(
+      (i) => i?.biz_id !== 33
+    );
   }
 }
 
