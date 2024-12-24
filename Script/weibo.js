@@ -440,10 +440,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             if (!isAd(item?.data)) {
               removeFeedAd(item?.data); // 信息流推广
               removeVoteInfo(item?.data); // 投票窗口
-              // if (item?.data?.source?.includes("生日动态")) {
-              //   // 移除生日祝福微博
-              //   continue;
-              // }
+              if (item?.data?.source?.includes("生日动态")) {
+                // 移除生日祝福微博
+                continue;
+              }
               // if (item?.data?.title?.text !== "热门" && item?.data?.title?.structs?.length > 0) {
               //   // 移除赞过的微博 保留热门内容
               //   continue;
@@ -743,9 +743,9 @@ if (url.includes("/interface/sdk/sdkad.php")) {
                 if (payload?.loadedInfo?.headerBack?.channelStyleMap) {
                   delete payload.loadedInfo.headerBack.channelStyleMap; // 去除搜索背景图片
                 }
-                // if (payload?.loadedInfo?.searchBarStyleInfo) {
-                //   delete payload.loadedInfo.searchBarStyleInfo; // 搜索框样式
-                // }
+                if (payload?.loadedInfo?.searchBarStyleInfo) {
+                  delete payload.loadedInfo.searchBarStyleInfo; // 搜索框样式
+                }
               }
               if (payload?.items?.length > 0) {
                 let newItems = [];
