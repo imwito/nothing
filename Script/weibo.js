@@ -2,8 +2,8 @@
 引用地址：https://raw.githubusercontent.com/RuCu6/Loon/main/Scripts/weibo.js
 */
 // 2024-12-17 10:45
-// 2024-12-23
-// 保留赞过的微博，生日祝福微博，移除tab修改，搜索框填充词
+// 2024-12-27
+// 保留赞过的微博，生日祝福微博，移除tab修改，搜索框填充词、保留评论区气泡
 const url = $request.url;
 if (!$response) $done({});
 if (!$response.body) $done({});
@@ -132,18 +132,18 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       for (let item of obj.datas) {
         if (item?.data) {
           if (!isAd(item?.data)) {
-            if (item?.data?.comment_bubble) {
-              delete item.data.comment_bubble; // 评论气泡
-            }
-            if (item?.data?.comment_bullet_screens_message) {
-              delete item.data.comment_bullet_screens_message; // 评论弹幕
-            }
-            if (item?.data?.hot_icon) {
-              delete item.data.hot_icon; // 热评小图标 弹幕 首评
-            }
-            if (item?.data?.vip_button) {
-              delete item.data.vip_button; // 会员气泡按钮
-            }
+            // if (item?.data?.comment_bubble) {
+            //   delete item.data.comment_bubble; // 评论气泡
+            // }
+            // if (item?.data?.comment_bullet_screens_message) {
+            //   delete item.data.comment_bullet_screens_message; // 评论弹幕
+            // }
+            // if (item?.data?.hot_icon) {
+            //   delete item.data.hot_icon; // 热评小图标 弹幕 首评
+            // }
+            // if (item?.data?.vip_button) {
+            //   delete item.data.vip_button; // 会员气泡按钮
+            // }
             // 微博伪装评论
             if (item?.data?.user) {
               removeAvatar(item?.data); // 头像挂件,关注按钮
@@ -167,21 +167,21 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       let newItems = [];
       for (let item of obj.root_comments) {
         if (!isAd(item)) {
-          if (item?.comment_bubble) {
-            delete item.comment_bubble; // 评论气泡 新版本
-          }
-          if (item?.data?.comment_bubble) {
-            delete item.data.comment_bubble; // 评论气泡
-          }
-          if (item?.data?.comment_bullet_screens_message) {
-            delete item.data.comment_bullet_screens_message; // 评论弹幕
-          }
-          if (item?.data?.hot_icon) {
-            delete item.data.hot_icon; // 热评小图标 弹幕 首评
-          }
-          if (item?.data?.vip_button) {
-            delete item.data.vip_button; // 会员气泡按钮
-          }
+          // if (item?.comment_bubble) {
+          //   delete item.comment_bubble; // 评论气泡 新版本
+          // }
+          // if (item?.data?.comment_bubble) {
+          //   delete item.data.comment_bubble; // 评论气泡
+          // }
+          // if (item?.data?.comment_bullet_screens_message) {
+          //   delete item.data.comment_bullet_screens_message; // 评论弹幕
+          // }
+          // if (item?.data?.hot_icon) {
+          //   delete item.data.hot_icon; // 热评小图标 弹幕 首评
+          // }
+          // if (item?.data?.vip_button) {
+          //   delete item.data.vip_button; // 会员气泡按钮
+          // }
           // 微博伪装评论
           if (item.user) {
             removeAvatar(item); // 头像挂件,关注按钮
