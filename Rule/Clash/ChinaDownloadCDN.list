@@ -12,10 +12,10 @@ DOMAIN,epicgames-download1-1251447533.file.myqcloud.com
 # DOMAIN,gog.qtlglb.com
 
 # 微软商店游戏下载、应用下载、系统更新[中国]
-DOMAIN,assets1.xboxlive.cn
-DOMAIN,assets2.xboxlive.cn
-DOMAIN,dl.delivery.mp.microsoft.com
-DOMAIN,tlu.dl.delivery.mp.microsoft.com
+#DOMAIN,assets1.xboxlive.cn
+#DOMAIN,assets2.xboxlive.cn
+#DOMAIN,dl.delivery.mp.microsoft.com
+#DOMAIN,tlu.dl.delivery.mp.microsoft.com
 
 # UBisoft Connect(Uplay)育碧游戏下载、更新[中国]
 DOMAIN,uplaypc-s-ubisoft.cdn.ubionline.com.cn
