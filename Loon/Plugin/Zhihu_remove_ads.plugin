@@ -34,10 +34,10 @@ IP-CIDR6, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT, no-resolve
 ^https:\/\/api\.zhihu\.com\/bazaar\/vip_tab\/header\? response-body-json-del activity_banner activity_window vip_tip
 
 # 我的页面 - 项目列表、会员卡片
-^https:\/\/api\.zhihu\.com\/me\/guides reject-dict
-^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v2 reject-dict
-^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card reject
-^https:\/\/www\.zhihu\.com\/appview\/v3\/zhmore reject
+# ^https:\/\/api\.zhihu\.com\/me\/guides reject-dict
+# ^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v2 reject-dict
+# ^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card reject
+# ^https:\/\/www\.zhihu\.com\/appview\/v3\/zhmore reject
 
 # 搜索页 - 关键词、猜你想搜
 ^https:\/\/api\.zhihu\.com\/search\/(hot_search|preset_words) reject-dict
@@ -69,7 +69,7 @@ http-response ^https:\/\/(?:api|page-info)\.zhihu\.com\/(?:answers|articles)\/v2
 http-response ^https:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除首页悬浮图标
 http-response ^https:\/\/api\.zhihu\.com\/feed\/render\/tab\/config\? script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除推荐信息流推广
 http-response ^https:\/\/api\.zhihu\.com\/(?:moments_v3|topstory\/hot-lists\/total|topstory\/recommend) script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除推荐信息流推广
-http-response ^https:\/\/api\.zhihu\.com\/root\/tab script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=精简顶部标签
+# http-response ^https:\/\/api\.zhihu\.com\/root\/tab script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=精简顶部标签
 
 http-response ^https:\/\/api\.zhihu\.com\/v2\/topstory\/hot-lists\/everyone-seeing\? script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除热榜信息流推广
 http-response ^https:\/\/api\.zhihu\.com\/next-(?:bff|data|render) script-path=https://kelee.one/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除下一个回答推广、评论区顶部推广
