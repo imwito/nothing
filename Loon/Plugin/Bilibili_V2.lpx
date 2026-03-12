@@ -65,7 +65,7 @@ AND, ((DOMAIN-SUFFIX, chat.bilibili.com), (OR, ((DOMAIN-KEYWORD, stun), (DOMAIN-
 
 # 流量卡推荐
 ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(?:view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ mock-response-body data-type=text data="AAAAAAA=" mock-data-is-base64=true
-^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ response-header-add grpc-status 0
+#^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ response-header-add grpc-status 0
 
 [Script]
 http-request ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$ script-path=https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_request_kokoryh.js, argument=[{logLevel}], requires-body=true, binary-body-mode=true, timeout=10, enable={sponsorBlock}, tag=空降助手
@@ -78,3 +78,4 @@ http-response ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?
 
 [MitM]
 hostname=grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com
+
